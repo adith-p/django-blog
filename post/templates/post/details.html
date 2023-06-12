@@ -1,0 +1,22 @@
+{% extends 'post/base.html' %}
+
+
+{% block body %}
+<div class="container-sm" style="background-color: antiquewhite; margin-top:10px">
+    <h1 style="text-align: center;"><i>{{post.title}}</i></h1>
+    <h6 class="card-subtitle mb-2 text-muted">{{post.published_date.date}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">By {{post.user}}</h6>
+
+    <hr>
+    <div>
+        <p style="padding-bottom: 10px;"">
+            {{post.content|safe }}
+        </p>
+    </div>
+
+
+
+
+</div>
+
+{% endblock body %}

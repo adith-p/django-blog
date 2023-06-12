@@ -1,0 +1,20 @@
+{% extends 'post/base.html' %}
+
+{% block body %}
+<div class="container-md">
+
+    <form action="{% url 'post:edit_post' post.id %}" method="post">
+        {% csrf_token %}
+        <br>
+        <div class="row justify-content-md-center"><input type="text" name="title" value="{{post.title}}"></div>
+        <br>
+        <div class="row justify-content-md-center">
+            <textarea name="content" cols="30" rows="10">
+                {{post.content}}
+            </textarea>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-dark">Save</button>
+    </form>
+</div>
+{% endblock body %}

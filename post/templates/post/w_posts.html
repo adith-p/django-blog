@@ -1,0 +1,18 @@
+{% extends 'post/base.html' %}
+{% block body %}
+<div class="container-md">
+
+    <form action="{% url 'post:add_post'%}" method="post">
+        {% csrf_token %}
+        <br>
+        <div class="row justify-content-md-center">{{form.title}}</div>
+        <br>
+        <div class="row justify-content-md-center">
+            {{form.content}}
+        </div>
+        <br>
+        <button type="submit" class="btn btn-dark">submit</button>
+    </form>
+</div>
+
+{% endblock body %}
