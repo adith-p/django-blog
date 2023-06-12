@@ -1,0 +1,47 @@
+{% extends 'post/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+{% endblock styles %}
+{% block body %}
+
+<div class="register">
+    <div class="container" style="max-width: 300px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);">
+
+        <form action="{% url 'auth:register'%}" method="post">
+            {% csrf_token %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">
+                {{message}}
+            </div>
+            {% endfor %}
+
+            {% endif %}
+
+            <div class="mb-1">
+                <label for="exampleInputEmail1" class="form-label">User name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="username">
+
+            </div>
+
+            <div class="mb-1">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    name="email">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-1">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+            </div>
+            <div class="mb-1">
+                Already a member <a href="{% url 'auth:login' %}">Login</a>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+{% endblock body %}
