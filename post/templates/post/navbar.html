@@ -2,10 +2,11 @@
     <div class=" container-fluid">
         <a class="navbar-brand" href="{% url 'post:home' %}" style="color:black">BlogPost</a>
         <ul class="nav justify-content-end">
+
+            {% if request.user.is_authenticated %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'auth:profile' %}">profile</a>
             </li>
-            {% if request.user.is_authenticated %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'post:add_post' %}">Add A post</a>
             </li>
